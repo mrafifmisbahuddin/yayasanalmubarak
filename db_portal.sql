@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Sep 2019 pada 12.33
--- Versi server: 10.1.35-MariaDB
--- Versi PHP: 7.2.9
+-- Waktu pembuatan: 26 Des 2022 pada 11.34
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,15 +33,15 @@ CREATE TABLE `tbl_banner` (
   `gambar` varchar(100) DEFAULT NULL,
   `judul_depan` varchar(100) DEFAULT NULL,
   `judul_belakang` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_banner`
 --
 
 INSERT INTO `tbl_banner` (`id_banner`, `id_berita`, `gambar`, `judul_depan`, `judul_belakang`) VALUES
-(2, NULL, '5d09782b27805.png', 'Selamat Datang Di PORTAL ', 'Teknik Komputer Dan Informatika SMKN 1 Gedong Tataan'),
-(3, NULL, '5d0978580a3d1.jpeg', 'Pakarnya IT Muda', 'TIK SMKN 1 Gedong Tataan');
+(2, NULL, '63a9750061da9.png', 'Selamat Datang Di Website ', 'YAYASAN AL MUBARAK BENHIL'),
+(4, NULL, '63a97543cfa59.jpg', 'YAYASAN AL MUBARAK', 'TK,SD,SMP,SMA,SMK');
 
 -- --------------------------------------------------------
 
@@ -55,11 +54,11 @@ CREATE TABLE `tbl_berita` (
   `gambar` varchar(100) DEFAULT NULL,
   `judul` varchar(100) DEFAULT NULL,
   `id_kategori` int(11) DEFAULT NULL,
-  `isi` text,
+  `isi` text DEFAULT NULL,
   `publish` enum('Ya','Tidak') NOT NULL DEFAULT 'Ya',
   `tglupload` date DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_berita`
@@ -83,15 +82,15 @@ CREATE TABLE `tbl_client` (
   `id_client` int(11) NOT NULL,
   `gambar` varchar(100) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
-  `keterangan` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `keterangan` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_client`
 --
 
 INSERT INTO `tbl_client` (`id_client`, `gambar`, `nama`, `keterangan`) VALUES
-(1, '5d097b72e965a.jpg', 'Komarudin', 'Orang-orang hebat di bidang apapun bukan baru bekerja karena mereka Terinspirasi. Namun mereka menjadi terinspirasi karena mereka lebih suka Bekerja ..');
+(2, '63a975bd0085e.jpeg', 'TEAM IT AL MUBARAK', '');
 
 -- --------------------------------------------------------
 
@@ -106,7 +105,7 @@ CREATE TABLE `tbl_download` (
   `file_download` varchar(100) DEFAULT NULL,
   `tgl_uploadfile` date NOT NULL,
   `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_download`
@@ -125,8 +124,8 @@ CREATE TABLE `tbl_fitur` (
   `id_fitur` int(11) NOT NULL,
   `icon` varchar(100) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
-  `keterangan` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `keterangan` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_fitur`
@@ -136,7 +135,7 @@ INSERT INTO `tbl_fitur` (`id_fitur`, `icon`, `nama`, `keterangan`) VALUES
 (3, 'fa fa-html5 color3', 'HTML', 'Hypertext Markup Language adalah sebuah bahasa markah yang digunakan untuk membuat sebuah halaman web.'),
 (4, 'fa fa-css3', 'CSS', 'Cascading Style Sheet (CSS) merupakan aturan untuk mengatur beberapa komponen dalam sebuah web sehingga akan lebih terstruktur dan seragam.'),
 (5, 'fa fa-code color2', 'PHP', 'Hypertext Preprocessor adalah bahasa skrip yang dapat ditanamkan atau disisipkan ke dalam HTML. PHP banyak dipakai untuk memprogram situs web dinamis.'),
-(6, 'fa fa-android color1', 'Android', 'Android adalah sistem operasi berbasis Linux yang dirancang untuk perangkat bergerak layar sentuh seperti telepon pintar dan komputer tablet.');
+(6, 'bi bi-caret-right-square-fill', 'Android', 'Android adalah sistem operasi berbasis Linux yang dirancang untuk perangkat bergerak layar sentuh seperti telepon pintar dan komputer tablet.');
 
 -- --------------------------------------------------------
 
@@ -150,7 +149,7 @@ CREATE TABLE `tbl_gallery` (
   `judul` varchar(100) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `id_tags` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -161,16 +160,16 @@ CREATE TABLE `tbl_gallery` (
 CREATE TABLE `tbl_halaman` (
   `id_halaman` int(5) NOT NULL,
   `judul` varchar(100) DEFAULT NULL,
-  `isi` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `isi` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_halaman`
 --
 
 INSERT INTO `tbl_halaman` (`id_halaman`, `judul`, `isi`) VALUES
-(1, 'Visi Dan Misi', '<p><strong>Visi</strong></p>\r\n\r\n<p>Menjadikan&nbsp;<strong>Program Keahlian Teknik Komputer Dan Informatika</strong>&nbsp;sebagai pusat program keahlian yang memiliki keunggulan ilmu dan teknologi dalam bidang informasi dan komunikasi menjelang era globalisasi.</p>\r\n\r\n<p><strong>Misi</strong></p>\r\n\r\n<ol>\r\n	<li>Mengembangkan Sumber Daya Manusia yang mempunyai keunggulan dalam bidang teknologi informasi dan komunikasi yang dilandasi keimanan dan ketakwaan</li>\r\n	<li>Menyiapkan tenaga kerja tingkat menengah untuk mengisi kebutuhan dunia usaha dan dunia industri dalam bidang teknologi informasi dan komunikasi</li>\r\n	<li>Menyiapkan tamatan agar menjadi warga negara yang produktif, kreatif, dan inovatif</li>\r\n	<li>Menyiapkan peserta diklat untuk memasuki dunia kerja, serta mengembangkan sikap professional</li>\r\n	<li>Menyiapkan peserta diklat untuk melanjutkan ke jenjang pendidikan yang lebih tinggi</li>\r\n	<li>Menyiapkan tamatan untuk membuka usaha sendiri atau berwiraswasta</li>\r\n</ol>\r\n'),
-(2, 'Sejarah', '<p><strong>SEJARAH PERKEMBANGAN TEKNIK KOMPUTER DAN INFORMATIKA</strong></p>\r\n\r\n<p><strong>Teknik Komputer Dan Informatika</strong>&nbsp;telah berkembang sejak pertama kali diciptakan pada tahun 1940-an hingga kini. Fokus utama pengembangannya adalah untuk mengembangkan praktek dan teknologi untuk meningkatkan produktivitas para praktisi pengembang perangkat lunak dan kualitas aplikasi yang dapat digunakan oleh pemakai.</p>\r\n');
+(1, 'Visi Dan Misi', '<p><strong>Visi</strong></p>\r\n\r\n<p>Menjadi Sekolah Berbudaya dan Islami yang aktif mewujudkan insan Indonesia yang gemar belajar, kreatif, mandiri, dan berbudi pekerti yang luhur</p>\r\n\r\n<p><strong>Misi</strong></p>\r\n\r\n<p>Mengintegrasikan kurikulum, metodologi, dan program yang berkesinambungan dari tingkat pra sekolah sampai tingkat menengah atas, sehingga lulusannya menjadi insan yang gemar belajar, kreatif, mandiri, dan berbudi pekerti yang luhur.</p>\r\n'),
+(2, 'Sambutan ketua Yayasan', '<h3><img alt=\"\" src=\"https://albin.sch.id/assets/img/portrait/H._NAHRAWI_MUGHNI__S.Pd.I.png\" /></h3>\r\n\r\n<p>Sebagai sarana komunikasi dan penyampaian info pendidikan, maka kebutuhan akan web sekolah sangat diperlukan. Diharapkan juga setiap unsur yang ada di Yayasan Pendidikan Al Mubarok Benhil dapat memanfaatkannya dengan sebaik-baiknya. Hakikat belajar adalah perubahan yang harus terjadi pada seseorang, dari tidak tahu menjadi tahu, dari tidak terampil menjadi terampil, dan dari tidak baik menjadi baik. Maka keberadaan web sekolah bisa melengkapi info dan pembelajaran di kelas yang belum tuntas.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Sebagai tuntutan revolusi industri 4.0, dimana kecepatan informasi sangat menentukan keberhasilan kegiatan, maka hendaknya seluruh stakeholder Yayasan Pendidikan Al Mubarok Benhil dapat terus meningkatkan kemampuan teknologi informasinya. Apalagi dikaitkan dengan tuntutan literasi masa depan yang mengedepankan 6 hal, yaitu literasi membaca dan menulis, literasi numeral, literasi financial, literasi budaya, dan literasi digital, maka tuntutan untuk mengembangkan diri pada dunia digital menjadi suatu keharusan. Akhir kata, marilah terus mengembangkan diri, sehingga Yayasan Pendidikan Al Mubarok Benhil menjadi sekolah unggulan yang berkarakter, kompeten dan religius, dalam era digital yang sangat pesat ini.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -183,7 +182,7 @@ CREATE TABLE `tbl_kategoriberita` (
   `nama_kategori` varchar(100) NOT NULL,
   `keterangan` varchar(200) DEFAULT NULL,
   `status_aktif` enum('Aktif','Tidak') DEFAULT 'Aktif'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_kategoriberita`
@@ -204,10 +203,10 @@ CREATE TABLE `tbl_komentar` (
   `id_berita` int(11) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `komentar` text,
+  `komentar` text DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_komentar`
@@ -231,7 +230,7 @@ CREATE TABLE `tbl_menu` (
   `judul` varchar(50) DEFAULT NULL,
   `link` varchar(50) DEFAULT NULL,
   `urutan` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_menu`
@@ -239,10 +238,11 @@ CREATE TABLE `tbl_menu` (
 
 INSERT INTO `tbl_menu` (`id_menu`, `judul`, `link`, `urutan`) VALUES
 (15, 'Profile', '#', 2),
-(16, 'Informasi', '#', 3),
-(18, 'Contact', '?tampil=contact', 6),
+(16, 'Informasi', '#', 5),
+(18, 'Contact', '?tampil=contact', 7),
 (19, 'Curriculum', '', 4),
-(20, 'Gallery', '#', 5);
+(20, 'Gallery', '#', 6),
+(21, 'Unit', '#', 3);
 
 -- --------------------------------------------------------
 
@@ -253,12 +253,12 @@ INSERT INTO `tbl_menu` (`id_menu`, `judul`, `link`, `urutan`) VALUES
 CREATE TABLE `tbl_pengumuman` (
   `id_pengumuman` int(11) NOT NULL,
   `judul_pengumuman` varchar(100) DEFAULT NULL,
-  `isi_pengumuman` text,
+  `isi_pengumuman` text DEFAULT NULL,
   `file_pengumuman` varchar(100) DEFAULT NULL,
   `publish` enum('Ya','Tidak') DEFAULT 'Ya',
   `tgl_uploadpengumuman` date DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_pengumuman`
@@ -278,9 +278,9 @@ CREATE TABLE `tbl_pesan` (
   `nama` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `subjek` varchar(50) DEFAULT NULL,
-  `pesan` text,
+  `pesan` text DEFAULT NULL,
   `tanggal` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_pesan`
@@ -303,7 +303,7 @@ CREATE TABLE `tbl_profil` (
   `email` varchar(100) DEFAULT NULL,
   `no_telp` varchar(100) DEFAULT NULL,
   `website` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_profil`
@@ -326,9 +326,9 @@ CREATE TABLE `tbl_student` (
   `jk` enum('Laki - Laki','Perempuan') DEFAULT NULL,
   `jurusan` varchar(100) DEFAULT NULL,
   `angkatan` varchar(100) DEFAULT NULL,
-  `alamat` text,
+  `alamat` text DEFAULT NULL,
   `status` enum('Aktif','Tidak Aktif') DEFAULT 'Aktif'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_student`
@@ -352,7 +352,7 @@ CREATE TABLE `tbl_submenu` (
   `judul` varchar(50) DEFAULT NULL,
   `link` varchar(50) DEFAULT NULL,
   `urutan` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_submenu`
@@ -364,7 +364,12 @@ INSERT INTO `tbl_submenu` (`id_submenu`, `id_menu`, `judul`, `link`, `urutan`) V
 (4, 16, 'Pengumuman', '?tampil=pengumuman', 1),
 (5, 19, 'Student', '?tampil=student', 1),
 (6, 16, 'Download', '?tampil=download', 2),
-(7, 20, 'Gallery Foto', '?tampil=gallery', 1);
+(7, 20, 'Gallery Foto', '?tampil=gallery', 1),
+(8, 21, 'TK AL MUBARAK', 'https://albin.sch.id/', 1),
+(9, 21, 'SD AL MUBARAK', 'https://albin.sch.id/', 2),
+(10, 21, 'SMP AL MUBARAK', 'https://albin.sch.id/', 3),
+(11, 21, 'SMA AL MUBARAK', 'https://albin.sch.id/', 4),
+(12, 21, 'SMK BINTANG NUSANTARA', 'https://albin.sch.id/', 5);
 
 -- --------------------------------------------------------
 
@@ -377,7 +382,7 @@ CREATE TABLE `tbl_tags` (
   `gambar` varchar(100) DEFAULT NULL,
   `judul_tags` varchar(100) DEFAULT NULL,
   `tanggal` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_tags`
@@ -400,15 +405,15 @@ CREATE TABLE `tbl_user` (
   `password` varchar(50) DEFAULT NULL,
   `status` enum('Aktif','Tidak Aktif') DEFAULT NULL,
   `level` enum('Administrator','Pengelola Data') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `gambar`, `username`, `password`, `status`, `level`) VALUES
-(30, '5cea75b015f5f.jpg', 'komarudin', '8f2fdb2c96a6f644bf461e7a71d39286', 'Aktif', 'Administrator'),
-(31, '5cf1e44476d66.png', 'pengelola', '21232f297a57a5a743894a0e4a801fc3', 'Aktif', 'Pengelola Data');
+(32, '63a96d7164728.jpeg', 'admin', '0192023a7bbd73250516f069df18b500', 'Aktif', 'Administrator'),
+(33, '63a96da8d12ff.jpeg', 'admin234', '78e0d5058803a3d6481b946b5e7a2510', 'Aktif', 'Pengelola Data');
 
 --
 -- Indexes for dumped tables
@@ -527,7 +532,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT untuk tabel `tbl_banner`
 --
 ALTER TABLE `tbl_banner`
-  MODIFY `id_banner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_banner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_berita`
@@ -539,7 +544,7 @@ ALTER TABLE `tbl_berita`
 -- AUTO_INCREMENT untuk tabel `tbl_client`
 --
 ALTER TABLE `tbl_client`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_download`
@@ -563,7 +568,7 @@ ALTER TABLE `tbl_gallery`
 -- AUTO_INCREMENT untuk tabel `tbl_halaman`
 --
 ALTER TABLE `tbl_halaman`
-  MODIFY `id_halaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_halaman` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kategoriberita`
@@ -581,7 +586,7 @@ ALTER TABLE `tbl_komentar`
 -- AUTO_INCREMENT untuk tabel `tbl_menu`
 --
 ALTER TABLE `tbl_menu`
-  MODIFY `id_menu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_menu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pengumuman`
@@ -611,7 +616,7 @@ ALTER TABLE `tbl_student`
 -- AUTO_INCREMENT untuk tabel `tbl_submenu`
 --
 ALTER TABLE `tbl_submenu`
-  MODIFY `id_submenu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_submenu` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_tags`
@@ -623,7 +628,7 @@ ALTER TABLE `tbl_tags`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
