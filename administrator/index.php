@@ -33,7 +33,7 @@ if (@$_SESSION['userweb'] != "") {
       <a href="#"><b>Halaman</b> Portal</a>
     </div>
     <div class="login-box-body">
-      <p class="login-box-msg">Silahkan Login Untuk Masuk Ke Halaman Administrator <b>TIK SMKN 1 GEDONG TATAAN</b></p>
+      <p class="login-box-msg">Silahkan Login Untuk Masuk Ke Halaman Administrator <b>YAYASAN AL MUBARAK</b></p>
 
       <form action="auth.php" method="post">
         <div class="form-group has-feedback">
