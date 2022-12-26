@@ -1,0 +1,12 @@
+
+Hak Akses Administrator Admin
+
+Username : komarudin
+Password : konfirmasi
+
+Hak Akses Administrator Pengelola
+
+Username : pengelola
+Password : admin
+
+Semua Username dan Password Bisa Untuk Buka Website : tik-smkn1gedongtataan.000webhostapp.com
